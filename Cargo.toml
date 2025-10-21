@@ -1,0 +1,27 @@
+[package]
+name = "skt13b"                # atau nama proyekmu
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+rust-version = "1.77"
+
+[[bin]]
+name = "skt13b"
+harness = false
+
+[features]
+default = []
+experimental = ["esp-idf-svc/experimental"]
+
+[dependencies]
+log = "0.4"
+anyhow = "1"
+ serde = { version = "1", features = ["derive"] }
+ serde_json = "1"
+# PAKU versi svc yang cocok dengan ESP-IDF v5.2.x (menarik hal=0.45 & sys=0.36)
+esp-idf-svc = "=0.51.0"
+esp-idf-sys = { version = "=0.36.1", features = ["binstart"] }
+heapless = "0.8"
+
+[build-dependencies]
+embuild = "0.33"
